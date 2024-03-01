@@ -1,6 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="../../common/taglib.jsp" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,3 +9,15 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
+
+<body data-bs-theme="dark" class="d-flex flex-column vh-100">
+<jsp:include page="../../common/user/navbar.jsp" />
+
+<div class="container flex-grow-1">
+    <decorator:body></decorator:body>
+</div>
+
+<%@include file="../../common/user/footer.jsp" %>
+
+</body>
+</html>
