@@ -8,6 +8,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "UserController", value = "/admin/users/*")
@@ -20,18 +21,34 @@ public class UserController extends HttpServlet {
 
         System.out.println("action in get: " + action);
 
-        switch (action) {
-            case "/new":
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
-                dispatcher.forward(request, response);
-                break;
-//                case "/edit":
-//                    showEditForm(request, response);
-//                    break;
-            default:
-                listUser(request, response);
-                break;
+//        switch (action) {
+//            case "/new":
+//                RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
+//                dispatcher.forward(request, response);
+//                break;
+//            case "/edit":
+//                showEditForm(request, response);
+//                break;
+//            default:
+//                listUser(request, response);
+//                break;
+//        }
+
+        if (action.startsWith("/new")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
+            dispatcher.forward(request, response);
+            return;
+        } else if (action.startsWith("/edit/")) {
+            String[] parts = action.split("/");
+            if (parts.length == 3) {
+                String userIdString = parts[2];
+                int userId = Integer.parseInt(userIdString);
+                showEditForm(request, response, userId);
+                return;
+            }
         }
+
+        listUser(request, response);
     }
 
     @Override
@@ -47,9 +64,9 @@ public class UserController extends HttpServlet {
             case "/delete":
                 deleteUser(request, response);
                 break;
-//            case "/update":
-//                updateUser(request, response);
-//                break;
+            case "/update":
+                updateUser(request, response);
+                break;
             default:
                 listUser(request, response);
                 break;
@@ -60,10 +77,18 @@ public class UserController extends HttpServlet {
         UserService userService = new UserService();
 
         List<User> listUser = userService.getAllUsers();
-
-        System.out.println("listUser: " + listUser);
         request.setAttribute("listUser", listUser);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_list.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response, int userId) throws ServletException, IOException {
+        UserService userService = new UserService();
+        User existingUser = userService.getUserById(userId);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form_update.jsp");
+        request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
     }
 
@@ -77,10 +102,10 @@ public class UserController extends HttpServlet {
         user.setFullName(fullName);
         user.setPassword(password);
 
-        System.out.println(user);
-
         UserService userService = new UserService();
         userService.insertUser(user);
+
+        request.getSession().setAttribute("message", "New user has been added successfully!");
 
         response.sendRedirect(request.getContextPath() + "/admin/users");
     }
@@ -90,6 +115,28 @@ public class UserController extends HttpServlet {
 
         UserService userService = new UserService();
         userService.deleteUser(id);
+
+        request.getSession().setAttribute("message", "User has been deleted successfully!");
+
+        response.sendRedirect(request.getContextPath() + "/admin/users");
+    }
+
+    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        String email = request.getParameter("email");
+        String fullName = request.getParameter("fullName");
+        String password = request.getParameter("password");
+
+        User user = new User();
+        user.setUser_id(userId);
+        user.setEmail(email);
+        user.setFullName(fullName);
+        user.setPassword(password);
+
+        UserService userService = new UserService();
+        userService.updateUser(user);
+
+        request.getSession().setAttribute("message", "User has been updated successfully!");
 
         response.sendRedirect(request.getContextPath() + "/admin/users");
     }

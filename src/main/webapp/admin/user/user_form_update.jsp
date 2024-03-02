@@ -2,18 +2,21 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="mt-3">
-    <h4 class="mb-4">Create new user</h4>
+    <h4 class="mb-4">Update user</h4>
 
     <form class="bg-body-secondary rounded p-4" id="userForm"
-          style="width: 400px" action="${contextPath}/admin/users/insert" method="post">
+          style="width: 400px" action="${contextPath}/admin/users/update" method="post">
+
+        <input type="hidden" name="userId" value="${user.user_id}">
+
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="text" class="form-control" name="email" id="email" placeholder="name@example.com">
+            <input type="text" class="form-control" name="email" id="email" value="${user.email}" placeholder="name@example.com">
         </div>
 
         <div class="mb-3">
             <label for="fullName" class="form-label">Full name</label>
-            <input type="text" class="form-control" name="fullName" id="fullName" placeholder="full name">
+            <input type="text" class="form-control" name="fullName" id="fullName" value="${user.fullName}" placeholder="full name">
         </div>
 
         <div class="mb-3">
@@ -22,7 +25,7 @@
         </div>
 
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary btn-sm me-3">Submit</button>
+            <button type="submit" class="btn btn-primary btn-sm me-3">Save</button>
             <a href="${contextPath}/admin/users/" class="btn btn-secondary btn-sm">Cancel</a>
         </div>
     </form>

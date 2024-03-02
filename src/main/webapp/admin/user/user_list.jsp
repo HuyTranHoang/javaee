@@ -25,12 +25,17 @@
                 <td>${user.email}</td>
                 <td>${user.fullName}</td>
                 <td>
-                    <i class="fa-light fa-pen-to-square text-warning me-3"></i>
+
+                    <a href="${contextPath}/admin/users/edit/${user.user_id}"
+                       class="fa-light fa-pen-to-square text-warning text-decoration-none me-3">
+                    </a>
+
                     <i class="fa-light fa-trash text-danger delete-btn"
                        style="cursor: pointer;"
                        data-id="${user.user_id}"
                        data-bs-toggle="modal"
-                       data-bs-target="#confirmModal"></i>
+                       data-bs-target="#confirmModal">
+                    </i>
                 </td>
             </tr>
         </c:forEach>
@@ -71,11 +76,10 @@
         const deleteForm = $('#deleteForm');
         const deleteUserId = $('#deleteUserId');
         const confirmButton = $('#confirmModal .btn-danger');
-        let id = 0;
 
         deleteBtns.each((index, btn) => {
             $(btn).on('click', function () {
-                id = $(this).data('id');
+                const id = $(this).data('id');
                 deleteUserId.val(id);
             });
         });
@@ -84,4 +88,19 @@
             deleteForm.trigger('submit');
         });
     }
+
+    <c:if test="${not empty sessionScope.message}">
+
+    function sweetAlertInitialize() {
+        Swal.fire({
+            title: 'Success!',
+            text: '${sessionScope.message}',
+            icon: 'success'
+        });
+    }
+
+    <% session.removeAttribute("message"); %>
+
+    </c:if>
+
 </script>
