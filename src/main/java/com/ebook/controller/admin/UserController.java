@@ -44,9 +44,9 @@ public class UserController extends HttpServlet {
             case "/insert":
                 insertUser(request, response);
                 break;
-//            case "/delete":
-//                deleteUser(request, response);
-//                break;
+            case "/delete":
+                deleteUser(request, response);
+                break;
 //            case "/update":
 //                updateUser(request, response);
 //                break;
@@ -81,6 +81,15 @@ public class UserController extends HttpServlet {
 
         UserService userService = new UserService();
         userService.insertUser(user);
+
+        response.sendRedirect(request.getContextPath() + "/admin/users");
+    }
+
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("deleteUserId"));
+
+        UserService userService = new UserService();
+        userService.deleteUser(id);
 
         response.sendRedirect(request.getContextPath() + "/admin/users");
     }

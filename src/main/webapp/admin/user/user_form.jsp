@@ -29,7 +29,7 @@
 </div>
 
 <script type="text/javascript">
-    function initializeUserForm() {
+    function initializeScript() {
         const userForm = $('#userForm');
 
         userForm.validate({
