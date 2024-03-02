@@ -8,7 +8,7 @@
     <form class="bg-body-secondary rounded p-4" id="userForm"
           style="width: 400px" action="${contextPath}/admin/users/update" method="post">
 
-        <input type="hidden" name="userId" value="${user.user_id}">
+        <input type="hidden" name="user_id" value="${user.user_id}">
 
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>

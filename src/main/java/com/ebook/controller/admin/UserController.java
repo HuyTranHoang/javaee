@@ -2,6 +2,7 @@ package com.ebook.controller.admin;
 
 import com.ebook.entity.User;
 import com.ebook.service.UserService;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -18,19 +19,6 @@ public class UserController extends HttpServlet {
         String action = request.getPathInfo() != null ? request.getPathInfo() : "/list-user";
 
         System.out.println("action in get: " + action);
-
-//        switch (action) {
-//            case "/new":
-//                RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
-//                dispatcher.forward(request, response);
-//                break;
-//            case "/edit":
-//                showEditForm(request, response);
-//                break;
-//            default:
-//                listUser(request, response);
-//                break;
-//        }
 
         if (action.startsWith("/new")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
@@ -73,7 +61,6 @@ public class UserController extends HttpServlet {
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserService();
-
         List<User> listUser = userService.getAllUsers();
         request.setAttribute("listUser", listUser);
 
@@ -84,21 +71,28 @@ public class UserController extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response, int userId) throws ServletException, IOException {
         UserService userService = new UserService();
         User existingUser = userService.getUserById(userId);
+        request.setAttribute("user", existingUser);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form_update.jsp");
-        request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
     }
 
     private void insertUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String fullName = request.getParameter("fullName");
-        String password = request.getParameter("password");
+//        String email = request.getParameter("email");
+//        String fullName = request.getParameter("fullName");
+//        String password = request.getParameter("password");
+//
+//        User user = new User();
+//        user.setEmail(email);
+//        user.setFullName(fullName);
+//        user.setPassword(password);
 
         User user = new User();
-        user.setEmail(email);
-        user.setFullName(fullName);
-        user.setPassword(password);
+        try {
+            BeanUtils.populate(user, request.getParameterMap());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         UserService userService = new UserService();
         userService.insertUser(user);
@@ -120,16 +114,12 @@ public class UserController extends HttpServlet {
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        String email = request.getParameter("email");
-        String fullName = request.getParameter("fullName");
-        String password = request.getParameter("password");
-
         User user = new User();
-        user.setUser_id(userId);
-        user.setEmail(email);
-        user.setFullName(fullName);
-        user.setPassword(password);
+        try {
+            BeanUtils.populate(user, request.getParameterMap());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         UserService userService = new UserService();
         userService.updateUser(user);

@@ -20,7 +20,7 @@
         <tbody>
 
         <c:forEach items="${listUser}" var="user" varStatus="iterationCount">
-            <jsp:useBean id="user" scope="request" type="com.ebook.entity.User"/>
+            <jsp:useBean id="user" type="com.ebook.entity.User"/>
             <tr>
                 <th scope="row">${iterationCount.index + 1}</th>
                 <td>${user.email}</td>
