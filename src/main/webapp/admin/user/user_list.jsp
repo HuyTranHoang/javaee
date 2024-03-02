@@ -1,9 +1,10 @@
 <%@include file="../../common/taglib.jsp" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<jsp:useBean id="listUser" scope="request" type="java.util.List"/>
 
 <div class="d-flex align-items-center justify-content-between mt-3">
     <h5 class="text-center">User</h5>
-    <a href="${pageContext.request.contextPath}/admin/users/new" class="btn btn-success btn-sm me-4">New User</a>
+    <a href="${contextPath}/admin/users/new" class="btn btn-success btn-sm me-4">New User</a>
 </div>
 
 <div class="d-flex justify-content-center py-3">
@@ -18,8 +19,8 @@
         </thead>
         <tbody>
 
-        <jsp:useBean id="listUser" scope="request" type="java.util.List"/>
         <c:forEach items="${listUser}" var="user" varStatus="iterationCount">
+            <jsp:useBean id="user" scope="request" type="com.ebook.entity.User"/>
             <tr>
                 <th scope="row">${iterationCount.index + 1}</th>
                 <td>${user.email}</td>
@@ -92,6 +93,7 @@
     <c:if test="${not empty sessionScope.message}">
 
     function sweetAlertInitialize() {
+        /* global Swal */
         Swal.fire({
             title: 'Success!',
             text: '${sessionScope.message}',

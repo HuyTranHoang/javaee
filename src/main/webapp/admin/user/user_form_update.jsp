@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<jsp:useBean id="user" scope="request" type="com.ebook.entity.User"/>
 
 <div class="mt-3">
     <h4 class="mb-4">Update user</h4>

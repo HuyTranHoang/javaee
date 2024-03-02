@@ -7,8 +7,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "UserController", value = "/admin/users/*")
