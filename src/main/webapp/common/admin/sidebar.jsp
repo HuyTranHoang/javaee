@@ -4,7 +4,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 <div class="mt-3">
-    <h4>Management</h4>
+    <h4 class="gradient-text"><i class="fa-regular fa-code fa-2xs"></i> Management</h4>
 </div>
 
 <div class="list-group mt-3">

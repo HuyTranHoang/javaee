@@ -6,5 +6,5 @@
 <h2 class="text-center">TODO: Statistic</h2>
 
 <div class="d-flex align-items-center justify-content-center">
-    <img src="<c:url value="/images/ahko.jpg" />" alt="image">
+    <img src="<c:url value="/assets/images/ahko.jpg" />" alt="image">
 </div>

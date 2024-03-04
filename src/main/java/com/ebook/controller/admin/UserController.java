@@ -87,6 +87,8 @@ public class UserController extends HttpServlet {
 //        user.setFullName(fullName);
 //        user.setPassword(password);
 
+
+
         User user = new User();
         try {
             BeanUtils.populate(user, request.getParameterMap());
@@ -95,6 +97,13 @@ public class UserController extends HttpServlet {
         }
 
         UserService userService = new UserService();
+
+        if (userService.getUserByEmail(user.getEmail()) != null) {
+            request.getSession().setAttribute("error", "User with email " + user.getEmail() + " already exists!");
+            response.sendRedirect(request.getContextPath() + "/admin/users/new");
+            return;
+        }
+
         userService.insertUser(user);
 
         request.getSession().setAttribute("message", "New user has been added successfully!");

@@ -6,6 +6,12 @@
 
     <form class="bg-body-secondary rounded p-4" id="userForm"
           style="width: 400px" action="${contextPath}/admin/users/insert" method="post">
+
+        <c:if test="${not empty sessionScope.error}">
+            <div class="alert alert-danger">${sessionScope.error}</div>
+            <% session.removeAttribute("error"); %>
+        </c:if>
+
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="text" class="form-control" name="email" id="email" placeholder="name@example.com">

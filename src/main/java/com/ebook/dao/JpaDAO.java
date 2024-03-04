@@ -11,7 +11,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 public class JpaDAO<T> {
-    private final SessionFactory sessionFactory;
+    protected final SessionFactory sessionFactory;
     private final Class<T> type;
 
     public JpaDAO(Class<T> type) {
@@ -117,6 +117,8 @@ public class JpaDAO<T> {
         return count;
     }
 
+    // HQL
+
     public List<T> findAllWithHQL(String hql) {
         List<T> list = null;
         try (Session session = sessionFactory.openSession()) {
@@ -135,6 +137,18 @@ public class JpaDAO<T> {
             e.printStackTrace();
         }
         return count;
+    }
+
+    public T findOneWithHQL(String hql, String paramName, Object paramValue) {
+        T t = null;
+        try (Session session = sessionFactory.openSession()) {
+            t = session.createNamedQuery(hql, type)
+                    .setParameter(paramName, paramValue)
+                    .getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return t;
     }
 
 }

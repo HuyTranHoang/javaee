@@ -3,12 +3,12 @@
 <jsp:useBean id="listUser" scope="request" type="java.util.List"/>
 
 <div class="d-flex align-items-center justify-content-between mt-3">
-    <h5 class="text-center">User</h5>
-    <a href="${contextPath}/admin/users/new" class="btn btn-success btn-sm me-4">New User</a>
+    <h4 class="text-center gradient-text">User List</h4>
+    <a href="${contextPath}/admin/users/new" class="btn btn-success btn-sm">New User</a>
 </div>
 
 <div class="d-flex justify-content-center py-3">
-    <table class="table">
+    <table class="table table-striped">
         <thead>
         <tr class="table-success">
             <th scope="col">#</th>

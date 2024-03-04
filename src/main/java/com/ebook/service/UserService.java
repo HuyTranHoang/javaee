@@ -20,6 +20,10 @@ public class UserService {
         return userDAO.find(id);
     }
 
+    public User getUserByEmail(String email) {
+        return userDAO.findByEmail(email);
+    }
+
     public void insertUser(User user) {
         userDAO.create(user);
     }

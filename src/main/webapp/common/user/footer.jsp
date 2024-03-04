@@ -1,6 +1,6 @@
 <div class="container mt-auto py-3">
     <div class="row text-center">
-        <h5>Copyright (C) 2024 by Gura, Ltd</h5>
+        <h6>Copyright &#169; 2024 by Gura, Ltd</h6>
     </div>
 
     <div class="row">
