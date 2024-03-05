@@ -23,13 +23,13 @@ public class UserDaoTest {
 
         User user = userDao.create(newUser);
 
-        assertTrue(user.getUser_id() > 0);
+        assertTrue(user.getUserId() > 0);
     }
 
     @Test
     void testFind() {
         User user = userDao.find(1);
-        assertEquals(1, (int) user.getUser_id());
+        assertEquals(1, (int) user.getUserId());
     }
 
     @Test

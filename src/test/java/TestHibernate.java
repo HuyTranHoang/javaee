@@ -19,9 +19,9 @@ public class TestHibernate {
             session.save(user);
             transaction.commit();
 
-            System.out.println("User saved with Id: " + user.getUser_id());
+            System.out.println("User saved with Id: " + user.getUserId());
 
-            User getUser = session.get(User.class, user.getUser_id());
+            User getUser = session.get(User.class, user.getUserId());
             System.out.println("User get: " + getUser.getFullName());
             System.out.println("User password: " + getUser.getPassword());
 

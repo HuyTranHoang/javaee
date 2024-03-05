@@ -1,6 +1,7 @@
 package com.ebook.dao;
 
 import com.ebook.config.HibernateSessionFactoryConfig;
+import lombok.extern.java.Log;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,6 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+@Log
 public class JpaDAO<T> {
     protected final SessionFactory sessionFactory;
     private final Class<T> type;
@@ -33,7 +35,7 @@ public class JpaDAO<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            log.warning("Error creating " + t);
         }
 
         return t;
@@ -51,7 +53,7 @@ public class JpaDAO<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            log.warning("Error updating " + t);
         }
 
         return t;
@@ -62,7 +64,7 @@ public class JpaDAO<T> {
         try (Session session = sessionFactory.openSession()) {
             t = session.get(type, (int) id);
         } catch (Exception e) {
-            e.printStackTrace();
+            log.warning("Error finding " + type.getSimpleName() + " with id: " + id);
         }
         return t;
     }
@@ -82,7 +84,7 @@ public class JpaDAO<T> {
             if (transaction != null) {
                 transaction.rollback();
             }
-            e.printStackTrace();
+            log.warning("Error deleting " + type.getSimpleName() + " with id: " + id);
         }
     }
 
@@ -97,7 +99,7 @@ public class JpaDAO<T> {
 //            criteria.select(criteria.from(type));
             list = session.createQuery(criteria).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.warning("Error finding all " + type.getSimpleName());
         }
         return list;
     }
@@ -111,7 +113,7 @@ public class JpaDAO<T> {
             criteria.select(builder.count(root));
             count = session.createQuery(criteria).getSingleResult();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.warning("Error counting " + type.getSimpleName());
         }
 
         return count;
@@ -124,7 +126,7 @@ public class JpaDAO<T> {
         try (Session session = sessionFactory.openSession()) {
             list = session.createNamedQuery(hql, type).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.warning("Error finding all " + type.getSimpleName() + " with HQL");
         }
         return list;
     }
@@ -134,7 +136,7 @@ public class JpaDAO<T> {
         try (Session session = sessionFactory.openSession()) {
             count = (long) session.createNamedQuery(hql).getSingleResult();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.warning("Error counting " + type.getSimpleName() + " with HQL");
         }
         return count;
     }
@@ -146,7 +148,7 @@ public class JpaDAO<T> {
                     .setParameter(paramName, paramValue)
                     .getSingleResult();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.warning("Error finding " + type.getSimpleName() + " with HQL");
         }
         return t;
     }

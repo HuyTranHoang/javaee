@@ -27,13 +27,13 @@
                 <td>${user.fullName}</td>
                 <td>
 
-                    <a href="${contextPath}/admin/users/edit/${user.user_id}"
+                    <a href="${contextPath}/admin/users/edit/${user.userId}"
                        class="fa-light fa-pen-to-square text-warning text-decoration-none me-3">
                     </a>
 
                     <i class="fa-light fa-trash text-danger delete-btn"
                        style="cursor: pointer;"
-                       data-id="${user.user_id}"
+                       data-id="${user.userId}"
                        data-bs-toggle="modal"
                        data-bs-target="#confirmModal">
                     </i>

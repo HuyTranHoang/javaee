@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "category")
@@ -20,4 +21,7 @@ public class Category {
     private Integer categoryId;
 
     private String name;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

@@ -1,13 +1,17 @@
 package com.ebook.dao;
 
 import com.ebook.entity.User;
+import lombok.extern.java.Log;
 import org.hibernate.Session;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import java.util.logging.Level;
 
+
+@Log
 public class UserDAO extends JpaDAO<User> {
 
     public UserDAO() {
@@ -45,11 +49,11 @@ public class UserDAO extends JpaDAO<User> {
             CriteriaBuilder builder = session.getCriteriaBuilder();
             CriteriaQuery<User> criteria = builder.createQuery(User.class);
             Root<User> root = criteria.from(User.class);
-            criteria.select(root)
-                    .where(builder.equal(root.get("email"), email));
+            criteria.select(root);
+            criteria.where(builder.equal(root.get("email"), email));
             user = session.createQuery(criteria).getSingleResult();
         } catch (Exception e) {
-            e.printStackTrace();
+            log.log(Level.WARNING, "Error finding user by email: " + email, e);
         }
         return user;
     }
