@@ -9,7 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="" />
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/config/AppContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user/user_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/user/user_form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user/user_form_update.jsp" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,11 +39,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
   <component name="JpbToolWindowState">
     <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -41,6 +61,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -73,9 +96,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Tomcat Server.Tomcat 9.0.861.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Aptech/JavaEE/ebook/src/main/webapp/images&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Aptech/JavaEE/ebook&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -95,11 +119,17 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\assets\images" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\images" />
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\common\user" />
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\assets" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp" />
-      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\frontend" />
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\WEB-INF" />
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\common" />
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\common\admin" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -182,6 +212,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.861" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.861" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
         <artifact name="ebook:war exploded">
           <settings>
@@ -197,7 +228,40 @@
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="54313" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
           <option name="USE_DEFAULT" value="true" />
@@ -272,12 +336,22 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.TestHibernate" />
+      <item itemvalue="Application.TestJDBC" />
+      <item itemvalue="JUnit.UserDaoTest" />
+      <item itemvalue="JUnit.UserDaoTest.testCount" />
+      <item itemvalue="JUnit.UserDaoTest.testDelete" />
+      <item itemvalue="JUnit.UserDaoTest.testFindAll" />
+      <item itemvalue="JUnit.UserDaoTest.testFind" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.861" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserDaoTest.testFindAll" />
-        <item itemvalue="JUnit.UserDaoTest.testCount" />
-        <item itemvalue="JUnit.UserDaoTest.testDelete" />
         <item itemvalue="JUnit.UserDaoTest.testFind" />
+        <item itemvalue="JUnit.UserDaoTest.testFindAll" />
+        <item itemvalue="JUnit.UserDaoTest.testDelete" />
+        <item itemvalue="JUnit.UserDaoTest.testCount" />
         <item itemvalue="JUnit.UserDaoTest" />
       </list>
     </recent_temporary>
@@ -322,10 +396,134 @@
       <workItem from="1709124980529" duration="5667000" />
       <workItem from="1709136852995" duration="1282000" />
       <workItem from="1709297529668" duration="30000" />
+      <workItem from="1709297570908" duration="6249000" />
+      <workItem from="1709309690349" duration="776000" />
+      <workItem from="1709311377333" duration="13286000" />
+      <workItem from="1709348774775" duration="91000" />
+      <workItem from="1709348880495" duration="5096000" />
+      <workItem from="1709354008194" duration="318000" />
+      <workItem from="1709354337337" duration="159000" />
+      <workItem from="1709354507604" duration="958000" />
+      <workItem from="1709371937053" duration="1036000" />
+      <workItem from="1709473254492" duration="246000" />
+      <workItem from="1709473512065" duration="730000" />
+      <workItem from="1709487965211" duration="3812000" />
+      <workItem from="1709556142481" duration="6554000" />
+      <workItem from="1709570900485" duration="1242000" />
+      <workItem from="1709588532383" duration="1044000" />
+      <workItem from="1709589596090" duration="61000" />
+      <workItem from="1709589670465" duration="313000" />
+      <workItem from="1709589997877" duration="269000" />
+      <workItem from="1709590280934" duration="402000" />
+      <workItem from="1709590695345" duration="111000" />
+      <workItem from="1709590816622" duration="871000" />
+      <workItem from="1709591764511" duration="213000" />
+      <workItem from="1709638869522" duration="135000" />
+      <workItem from="1709639015127" duration="400000" />
+      <workItem from="1709640455463" duration="504000" />
+      <workItem from="1709641460460" duration="1285000" />
+      <workItem from="1709642762251" duration="16000" />
+      <workItem from="1709648149301" duration="2676000" />
+      <workItem from="1709662368348" duration="71000" />
+      <workItem from="1709662452927" duration="7728000" />
+      <workItem from="1709697571152" duration="4062000" />
+      <workItem from="1709706065673" duration="58000" />
+      <workItem from="1709707390954" duration="23000" />
+      <workItem from="1709729222766" duration="348000" />
+      <workItem from="1709730541269" duration="2859000" />
+      <workItem from="1709903985663" duration="20000" />
+      <workItem from="1709904017529" duration="14000" />
+      <workItem from="1709904038938" duration="13000" />
+      <workItem from="1709904081535" duration="2000" />
+      <workItem from="1709904120012" duration="21000" />
+      <workItem from="1709904148717" duration="29000" />
+      <workItem from="1710009557724" duration="530000" />
+      <workItem from="1710010100166" duration="2036000" />
     </task>
+    <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
+      <option name="closed" value="true" />
+      <created>1709324128197</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709324128197</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update modal delete">
+      <option name="closed" value="true" />
+      <created>1709350681539</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709350681539</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update edit user">
+      <option name="closed" value="true" />
+      <created>1709353135039</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709353135039</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add jsp:useBean">
+      <option name="closed" value="true" />
+      <created>1709355143551</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709355143551</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Using BeanUtils">
+      <option name="closed" value="true" />
+      <created>1709372962936</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709372962936</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update validate unique email">
+      <option name="closed" value="true" />
+      <created>1709572117488</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709572117489</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update">
+      <option name="closed" value="true" />
+      <created>1709640911178</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709640911178</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update using sitemesh for layout. Jquery for validate" />
+    <MESSAGE value="Update modal delete" />
+    <MESSAGE value="Update edit user" />
+    <MESSAGE value="Add jsp:useBean" />
+    <MESSAGE value="Using BeanUtils" />
+    <MESSAGE value="Update validate unique email" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand>
+      <path>
+        <item name="ebook" type="b2602c69:ProjectViewProjectNode" />
+        <item name="dir{file://D:/Aptech/JavaEE/ebook}" type="462c0819:PsiDirectoryNode" />
+      </path>
+      <path>
+        <item name="ebook" type="b2602c69:ProjectViewProjectNode" />
+        <item name="dir{file://D:/Aptech/JavaEE/ebook}" type="462c0819:PsiDirectoryNode" />
+        <item name="dir{file://D:/Aptech/JavaEE/ebook/src}" type="462c0819:PsiDirectoryNode" />
+      </path>
+    </expand>
+    <select />
   </component>
 </project>

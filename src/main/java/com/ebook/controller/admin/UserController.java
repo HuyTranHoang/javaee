@@ -12,26 +12,29 @@ import java.util.List;
 
 @WebServlet(name = "UserController", value = "/admin/users/*")
 public class UserController extends HttpServlet {
+
+    private UserService userService;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        ServletContext servletContext = getServletContext();
+        userService = (UserService) servletContext.getAttribute("userService");
+    }
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String action = request.getServletPath();
-
         String action = request.getPathInfo() != null ? request.getPathInfo() : "/list-user";
 
         System.out.println("action in get: " + action);
 
         if (action.startsWith("/new")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
-            dispatcher.forward(request, response);
+            showCreateForm(request, response);
             return;
         } else if (action.startsWith("/edit/")) {
-            String[] parts = action.split("/");
-            if (parts.length == 3) {
-                String userIdString = parts[2];
-                int userId = Integer.parseInt(userIdString);
-                showEditForm(request, response, userId);
-                return;
-            }
+            showEditForm(request, response, action);
+            return;
         }
 
         listUser(request, response);
@@ -60,35 +63,40 @@ public class UserController extends HttpServlet {
     }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserService userService = new UserService();
-        List<User> listUser = userService.getAllUsers();
+        List<User> listUser = this.userService.getAllUsers();
         request.setAttribute("listUser", listUser);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_list.jsp");
         dispatcher.forward(request, response);
     }
 
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response, int userId) throws ServletException, IOException {
-        UserService userService = new UserService();
-        User existingUser = userService.getUserById(userId);
-        request.setAttribute("user", existingUser);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form_update.jsp");
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User user = new User();
+        request.setAttribute("user", user);
+        request.setAttribute("mode", "create");
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
         dispatcher.forward(request, response);
     }
 
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
+        String[] parts = action.split("/");
+        if (parts.length == 3) {
+            String userIdString = parts[2];
+            int userId = Integer.parseInt(userIdString);
+            UserService userService = new UserService();
+            User existingUser = userService.getUserById(userId);
+            request.setAttribute("user", existingUser);
+            request.setAttribute("mode", "edit");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/admin/users");
+        }
+    }
+
     private void insertUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String email = request.getParameter("email");
-//        String fullName = request.getParameter("fullName");
-//        String password = request.getParameter("password");
-//
-//        User user = new User();
-//        user.setEmail(email);
-//        user.setFullName(fullName);
-//        user.setPassword(password);
-
-
-
         User user = new User();
         try {
             BeanUtils.populate(user, request.getParameterMap());
@@ -96,15 +104,13 @@ public class UserController extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        UserService userService = new UserService();
-
-        if (userService.getUserByEmail(user.getEmail()) != null) {
+        if (this.userService.getUserByEmail(user.getEmail()) != null) {
             request.getSession().setAttribute("error", "User with email " + user.getEmail() + " already exists!");
             response.sendRedirect(request.getContextPath() + "/admin/users/new");
             return;
         }
 
-        userService.insertUser(user);
+        this.userService.insertUser(user);
 
         request.getSession().setAttribute("message", "New user has been added successfully!");
 
@@ -114,8 +120,7 @@ public class UserController extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("deleteUserId"));
 
-        UserService userService = new UserService();
-        userService.deleteUser(id);
+        this.userService.deleteUser(id);
 
         request.getSession().setAttribute("message", "User has been deleted successfully!");
 
@@ -124,14 +129,22 @@ public class UserController extends HttpServlet {
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = new User();
+
         try {
             BeanUtils.populate(user, request.getParameterMap());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        UserService userService = new UserService();
-        userService.updateUser(user);
+        User existingUser = this.userService.getUserByEmail(user.getEmail());
+
+        if (existingUser != null && existingUser.getUserId() != user.getUserId()) {
+            request.getSession().setAttribute("error", "User with email " + user.getEmail() + " already exists!");
+            response.sendRedirect(request.getContextPath() + "/admin/users/edit/" + user.getUserId());
+            return;
+        }
+
+        this.userService.updateUser(user);
 
         request.getSession().setAttribute("message", "User has been updated successfully!");
 

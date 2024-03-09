@@ -18,31 +18,6 @@ public class UserDAO extends JpaDAO<User> {
         super(User.class);
     }
 
-    @Override
-    public User create(User user) {
-        return super.create(user);
-    }
-
-    @Override
-    public User find(Object id) {
-        return super.find(id);
-    }
-
-    @Override
-    public User update(User user) {
-        return super.update(user);
-    }
-
-    @Override
-    public void delete(Object id) {
-        super.delete(id);
-    }
-
-    @Override
-    public List<User> findAll() {
-        return super.findAll();
-    }
-
     public User findByEmail(String email) {
         User user = null;
         try (Session session = super.sessionFactory.openSession()) {
@@ -56,11 +31,6 @@ public class UserDAO extends JpaDAO<User> {
             log.log(Level.WARNING, "Error finding user by email: " + email, e);
         }
         return user;
-    }
-
-    @Override
-    public long count() {
-        return super.count();
     }
 
     public List<User> findAllWithHQL() {

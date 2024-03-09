@@ -2,24 +2,36 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <div class="mt-3">
-    <h4 class="mb-4">Create new user</h4>
+    <jsp:useBean id="mode" class="java.lang.String" scope="request"/>
+    <c:if test="${mode == 'create'}">
+        <h4 class="mb-4">Create new user</h4>
+        <c:set var="actionPath" value="${contextPath}/admin/users/insert"/>
+    </c:if>
+    <c:if test="${mode == 'edit'}">
+        <h4 class="mb-4">Update user</h4>
+        <c:set var="actionPath" value="${contextPath}/admin/users/update"/>
+    </c:if>
 
     <form class="bg-body-secondary rounded p-4" id="userForm"
-          style="width: 400px" action="${contextPath}/admin/users/insert" method="post">
+          style="width: 400px" action="${actionPath}" method="post">
 
         <c:if test="${not empty sessionScope.error}">
             <div class="alert alert-danger">${sessionScope.error}</div>
             <% session.removeAttribute("error"); %>
         </c:if>
 
+        <jsp:useBean id="user" class="com.ebook.entity.User" scope="request"/>
+
+        <input type="hidden" name="userId" value="${user.userId}"/>
+
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="text" class="form-control" name="email" id="email" placeholder="name@example.com">
+            <input type="text" class="form-control" name="email" id="email" placeholder="name@example.com" value="${user.email}">
         </div>
 
         <div class="mb-3">
             <label for="fullName" class="form-label">Full name</label>
-            <input type="text" class="form-control" name="fullName" id="fullName" placeholder="full name">
+            <input type="text" class="form-control" name="fullName" id="fullName" placeholder="full name" value="${user.fullName}">
         </div>
 
         <div class="mb-3">
@@ -65,18 +77,15 @@
                     minlength: "Password must be at least 6 characters long"
                 }
             },
-            errorElement: 'div', // Use a div for error messages
-            errorClass: 'invalid-feedback', // Class name for error message container
+            errorElement: 'div',
+            errorClass: 'invalid-feedback',
             highlight: function(element, errorClass, validClass) {
-                // Highlight input element with Bootstrap error class
                 $(element).addClass('is-invalid');
             },
             unhighlight: function(element, errorClass, validClass) {
-                // Remove Bootstrap error class when error is fixed
                 $(element).removeClass('is-invalid');
             },
             errorPlacement: function(error, element) {
-                // Display error message within Bootstrap form-group
                 error.insertAfter(element);
             }
         });
