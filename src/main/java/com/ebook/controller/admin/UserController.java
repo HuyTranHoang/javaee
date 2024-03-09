@@ -84,6 +84,7 @@ public class UserController extends HttpServlet {
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
         String[] parts = action.split("/");
+
         if (parts.length == 3) {
             String userIdString = parts[2];
             int userId = Integer.parseInt(userIdString);
@@ -97,7 +98,7 @@ public class UserController extends HttpServlet {
         }
     }
 
-    private void insertUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void insertUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = new User();
         try {
             BeanUtils.populate(user, request.getParameterMap());
@@ -118,7 +119,7 @@ public class UserController extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin/users");
     }
 
-    private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("deleteUserId"));
 
         this.userService.deleteUser(id);
@@ -128,7 +129,7 @@ public class UserController extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin/users");
     }
 
-    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void updateUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = new User();
 
         try {

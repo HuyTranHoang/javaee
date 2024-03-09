@@ -21,14 +21,14 @@ public class TestHibernate {
 
             System.out.println("User saved with Id: " + user.getUserId());
 
-            User getUser = session.get(User.class, user.getUserId());
-            System.out.println("User get: " + getUser.getFullName());
-            System.out.println("User password: " + getUser.getPassword());
+//            User getUser = session.get(User.class, user.getUserId());
+//            System.out.println("User get: " + getUser.getFullName());
+//            System.out.println("User password: " + getUser.getPassword());
 
         } catch (Exception e) {
             System.out.println("Oops, there's an error");
-            if (transaction != null)
-                transaction.rollback();
+//            if (transaction != null)
+//                transaction.rollback();
 
             e.printStackTrace();
         }
