@@ -33,6 +33,27 @@ public class UserDAO extends JpaDAO<User> {
         return user;
     }
 
+    public List<User> findAll(String searchString) {
+        List<User> users = null;
+        try (Session session = super.sessionFactory.openSession()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<User> criteria = builder.createQuery(User.class);
+            Root<User> root = criteria.from(User.class);
+            criteria.select(root);
+
+            if (searchString != null && !searchString.isEmpty()) {
+                criteria.where(builder.or(
+                        builder.like(root.get("email"), "%" + searchString + "%"),
+                        builder.like(root.get("fullName"), "%" + searchString + "%")
+                ));
+            }
+            users = session.createQuery(criteria).getResultList();
+        } catch (Exception e) {
+            log.log(Level.WARNING, "Error finding all users", e);
+        }
+        return users;
+    }
+
     public List<User> findAllWithHQL() {
         return super.findAllWithHQL("User.findAll");
     }

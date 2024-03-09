@@ -33,14 +33,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<div id="js-placeholder">
-    <script type="text/javascript">
-        $(function() {
-            initializeScript();
-            sweetAlertInitialize();
+<script type="text/javascript">
+    $(function() {
+        initializeScript();
+
+        <c:if test="${not empty sessionScope.message}">
+
+        /* global Swal */
+        Swal.fire({
+            title: 'Success!',
+            text: '${sessionScope.message}',
+            icon: 'success'
         });
-    </script>
-</div>
+
+        <% session.removeAttribute("message"); %>
+
+        </c:if>
+    });
+</script>
 
 </body>
 </html>

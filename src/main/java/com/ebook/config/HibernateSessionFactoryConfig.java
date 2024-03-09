@@ -52,6 +52,7 @@ public class HibernateSessionFactoryConfig {
         prop.setProperty(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
         prop.setProperty(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
         prop.setProperty(Environment.SHOW_SQL, "true");
+        prop.setProperty(Environment.FORMAT_SQL, "true");
         prop.setProperty(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
         prop.setProperty(Environment.HBM2DDL_AUTO, "update");
         return prop;

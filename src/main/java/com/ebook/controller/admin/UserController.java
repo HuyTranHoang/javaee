@@ -63,7 +63,9 @@ public class UserController extends HttpServlet {
     }
 
     private void listUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> listUser = this.userService.getAllUsers();
+        String searchString = request.getParameter("searchString");
+
+        List<User> listUser = this.userService.getAllUsers(searchString);
         request.setAttribute("listUser", listUser);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_list.jsp");
@@ -85,8 +87,7 @@ public class UserController extends HttpServlet {
         if (parts.length == 3) {
             String userIdString = parts[2];
             int userId = Integer.parseInt(userIdString);
-            UserService userService = new UserService();
-            User existingUser = userService.getUserById(userId);
+            User existingUser = this.userService.getUserById(userId);
             request.setAttribute("user", existingUser);
             request.setAttribute("mode", "edit");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");

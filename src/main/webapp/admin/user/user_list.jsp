@@ -3,7 +3,21 @@
 <jsp:useBean id="listUser" scope="request" type="java.util.List"/>
 
 <div class="d-flex align-items-center justify-content-between mt-3">
-    <h4 class="text-center gradient-text">User List</h4>
+    <div class="d-flex align-items-center">
+        <h4 class="me-3 gradient-text">User List</h4>
+        <form class="position-relative me-3" action="${contextPath}/admin/users">
+            <input name="searchString" id="search" value="${param.searchString}"
+                   class="form-control" style="padding-right: 40px" type="text" placeholder="search..">
+            <button type="submit" class="btn position-absolute" style="top: 8%; right: 0">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <c:if test="${not empty param.searchString}">
+            <a href="${contextPath}/admin/users" class="btn btn-danger btn-sm">Clear</a>
+        </c:if>
+    </div>
+
     <a href="${contextPath}/admin/users/new" class="btn btn-success btn-sm">New User</a>
 </div>
 
@@ -21,12 +35,16 @@
 
         <c:forEach items="${listUser}" var="user" varStatus="iterationCount">
             <jsp:useBean id="user" type="com.ebook.entity.User"/>
+
+            <%--            <c:url var="userEdit" value="admin/users/">--%>
+            <%--                <c:param name="id" value="${user.id}"/>--%>
+            <%--            </c:url>--%>
+
             <tr>
                 <th scope="row">${iterationCount.index + 1}</th>
                 <td>${user.email}</td>
                 <td>${user.fullName}</td>
                 <td>
-
                     <a href="${contextPath}/admin/users/edit/${user.userId}"
                        class="fa-light fa-pen-to-square text-warning text-decoration-none me-3">
                     </a>
@@ -49,7 +67,6 @@
     <input type="hidden" id="deleteUserId" name="deleteUserId">
 </form>
 
-
 <!-- Modal -->
 <div class="modal fade" id="confirmModal" tabindex="-1">
     <div class="modal-dialog">
@@ -70,7 +87,7 @@
 </div>
 
 
-<script type="text/javascript">
+<script defer type="text/javascript">
     function initializeScript() {
 
         const deleteBtns = $('.delete-btn');
@@ -89,20 +106,4 @@
             deleteForm.trigger('submit');
         });
     }
-
-    <c:if test="${not empty sessionScope.message}">
-
-    function sweetAlertInitialize() {
-        /* global Swal */
-        Swal.fire({
-            title: 'Success!',
-            text: '${sessionScope.message}',
-            icon: 'success'
-        });
-    }
-
-    <% session.removeAttribute("message"); %>
-
-    </c:if>
-
 </script>
