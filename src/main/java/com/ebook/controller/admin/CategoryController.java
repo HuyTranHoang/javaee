@@ -29,24 +29,32 @@ public class CategoryController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getPathInfo() != null ? request.getPathInfo() : "/list-category";
+        String pathInfo = request.getPathInfo();
 
-        System.out.println("action in get: " + action);
-
-        if (action.startsWith("/new")) {
-            showCreateForm(request, response);
-            return;
-        } else if (action.startsWith("/edit/")) {
-            showEditForm(request, response, action);
+        if (pathInfo == null || pathInfo.equals("/")) {
+            listCategory(request, response);
             return;
         }
 
-        listCategory(request, response);
+        String[] pathParts = pathInfo.split("/");
+        String action = pathParts[1];
+
+        switch (action) {
+            case "new":
+                showCreateForm(request, response);
+                break;
+            case "edit":
+                showEditForm(request, response, pathParts[2]);
+                break;
+            default:
+                listCategory(request, response);
+                break;
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getPathInfo() != null ? request.getPathInfo() : "/list-category";
+        String action = request.getPathInfo() != null ? request.getPathInfo() : "/invalid-action";
 
         System.out.println("action in post: " + action);
 
@@ -61,7 +69,8 @@ public class CategoryController extends HttpServlet {
                 updateCategory(request, response);
                 break;
             default:
-                listCategory(request, response);
+                request.getSession().setAttribute("error", "Invalid action!");
+                response.sendRedirect(request.getContextPath() + "/admin/categories");
                 break;
         }
     }
@@ -83,21 +92,20 @@ public class CategoryController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
-        String[] parts = action.split("/");
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response, String categoryIdString) throws ServletException, IOException {
+        int categoryId = Integer.parseInt(categoryIdString);
+        Category existingCategory = this.categoryService.getCategoryById(categoryId);
 
-        if (parts.length == 3) {
-            String categoryIdString = parts[2];
-            int categoryId = Integer.parseInt(categoryIdString);
-            Category existingCategory = this.categoryService.getCategoryById(categoryId);
-            request.setAttribute("category", existingCategory);
-            request.setAttribute("mode", "edit");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/category/category_form.jsp");
-            dispatcher.forward(request, response);
-        } else {
-            System.out.println("Invalid URL");
+        if (existingCategory == null) {
+            request.getSession().setAttribute("error", "Category with id " + categoryId + " does not exist!");
             response.sendRedirect(request.getContextPath() + "/admin/categories");
+            return;
         }
+
+        request.setAttribute("category", existingCategory);
+        request.setAttribute("mode", "edit");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/category/category_form.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void insertCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {

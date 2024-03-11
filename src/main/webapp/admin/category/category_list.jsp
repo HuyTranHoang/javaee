@@ -21,6 +21,10 @@
     <a href="${contextPath}/admin/categories/new" class="btn btn-success btn-sm">New Category</a>
 </div>
 
+<c:if test="${not empty sessionScope.error}">
+    <div class="alert alert-danger mt-3">${sessionScope.error}</div>
+    <% session.removeAttribute("error"); %>
+</c:if>
 <div class="d-flex justify-content-center py-3">
     <table class="table table-striped">
         <thead>

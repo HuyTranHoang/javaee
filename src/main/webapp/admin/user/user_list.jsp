@@ -21,6 +21,10 @@
     <a href="${contextPath}/admin/users/new" class="btn btn-success btn-sm">New User</a>
 </div>
 
+<c:if test="${not empty sessionScope.error}">
+    <div class="alert alert-danger mt-3">${sessionScope.error}</div>
+    <% session.removeAttribute("error"); %>
+</c:if>
 <div class="d-flex justify-content-center py-3">
     <table class="table table-striped">
         <thead>
@@ -35,11 +39,6 @@
 
         <c:forEach items="${listUser}" var="user" varStatus="iterationCount">
             <jsp:useBean id="user" type="com.ebook.entity.User"/>
-
-            <%--            <c:url var="userEdit" value="admin/users/">--%>
-            <%--                <c:param name="id" value="${user.id}"/>--%>
-            <%--            </c:url>--%>
-
             <tr>
                 <th scope="row">${iterationCount.index + 1}</th>
                 <td>${user.email}</td>

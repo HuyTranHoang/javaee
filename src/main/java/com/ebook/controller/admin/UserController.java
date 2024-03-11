@@ -26,26 +26,32 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getPathInfo() != null ? request.getPathInfo() : "/list-user";
+        String pathInfo = request.getPathInfo();
 
-        System.out.println("action in get: " + action);
-
-        if (action.startsWith("/new")) {
-            showCreateForm(request, response);
-            return;
-        } else if (action.startsWith("/edit/")) {
-            showEditForm(request, response, action);
+        if (pathInfo == null || pathInfo.equals("/")) {
+            listUser(request, response);
             return;
         }
 
-        listUser(request, response);
+        String[] pathParts = pathInfo.split("/");
+        String action = pathParts[1];
+
+        switch (action) {
+            case "new":
+                showCreateForm(request, response);
+                break;
+            case "edit":
+                showEditForm(request, response, pathParts[2]);
+                break;
+            default:
+                listUser(request, response);
+                break;
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getPathInfo() != null ? request.getPathInfo() : "/list-user";
-
-        System.out.println("action in post: " + action);
+        String action = request.getPathInfo() != null ? request.getPathInfo() : "/invalid-action";
 
         switch (action) {
             case "/insert":
@@ -58,7 +64,8 @@ public class UserController extends HttpServlet {
                 updateUser(request, response);
                 break;
             default:
-                listUser(request, response);
+                request.getSession().setAttribute("error", "Invalid action!");
+                response.sendRedirect(request.getContextPath() + "/admin/users");
                 break;
         }
     }
@@ -83,20 +90,20 @@ public class UserController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
-        String[] parts = action.split("/");
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response, String userIdString) throws ServletException, IOException {
+        int userId = Integer.parseInt(userIdString);
+        User existingUser = this.userService.getUserById(userId);
 
-        if (parts.length == 3) {
-            String userIdString = parts[2];
-            int userId = Integer.parseInt(userIdString);
-            User existingUser = this.userService.getUserById(userId);
-            request.setAttribute("user", existingUser);
-            request.setAttribute("mode", "edit");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
-            dispatcher.forward(request, response);
-        } else {
+        if (existingUser == null) {
+            request.getSession().setAttribute("error", "User with id " + userId + " does not exist!");
             response.sendRedirect(request.getContextPath() + "/admin/users");
+            return;
         }
+
+        request.setAttribute("user", existingUser);
+        request.setAttribute("mode", "edit");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/user/user_form.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void insertUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
