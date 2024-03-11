@@ -13,6 +13,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQueries({
+        @NamedQuery(name = "Category.findByName", query = "SELECT c FROM Category c WHERE c.name = :name")
+})
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,6 +3,8 @@ package com.ebook.controller.admin;
 import com.ebook.entity.User;
 import com.ebook.service.UserService;
 import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -18,10 +20,9 @@ public class UserController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        ServletContext servletContext = getServletContext();
-        userService = (UserService) servletContext.getAttribute("userService");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.cfg.xml");
+        this.userService = context.getBean("userService", UserService.class);
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -106,13 +107,13 @@ public class UserController extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        if (this.userService.getUserByEmail(user.getEmail()) != null) {
+        try {
+            this.userService.insertUser(user);
+        } catch (IllegalArgumentException e) {
             request.getSession().setAttribute("error", "User with email " + user.getEmail() + " already exists!");
             response.sendRedirect(request.getContextPath() + "/admin/users/new");
             return;
         }
-
-        this.userService.insertUser(user);
 
         request.getSession().setAttribute("message", "New user has been added successfully!");
 
@@ -138,15 +139,13 @@ public class UserController extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        User existingUser = this.userService.getUserByEmail(user.getEmail());
-
-        if (existingUser != null && existingUser.getUserId() != user.getUserId()) {
+        try {
+            this.userService.updateUser(user);
+        } catch (IllegalArgumentException e) {
             request.getSession().setAttribute("error", "User with email " + user.getEmail() + " already exists!");
             response.sendRedirect(request.getContextPath() + "/admin/users/edit/" + user.getUserId());
             return;
         }
-
-        this.userService.updateUser(user);
 
         request.getSession().setAttribute("message", "User has been updated successfully!");
 

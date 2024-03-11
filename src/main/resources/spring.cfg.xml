@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="userDAO" class="com.ebook.dao.UserDAO" />
+    <bean id="categoryDAO" class="com.ebook.dao.CategoryDAO" />
+
+    <bean id="userService" class="com.ebook.service.UserService">
+        <constructor-arg ref="userDAO" />
+    </bean>
+    <bean id="categoryService" class="com.ebook.service.CategoryService">
+        <constructor-arg ref="categoryDAO" />
+    </bean>
+
+</beans>

@@ -9,12 +9,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Update">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Update hibernate using xml file">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/dao/CategoryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/category/category_form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/category/category_list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/client/sidebar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1c9a792f-7466-4898-ae2d-68824955ffcb.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1c9a792f-7466-4898-ae2d-68824955ffcb/storage_v2/_src_/schema/c2202l_javaee_ebook.6Yd4Nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1c9a792f-7466-4898-ae2d-68824955ffcb/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1c9a792f-7466-4898-ae2d-68824955ffcb/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1c9a792f-7466-4898-ae2d-68824955ffcb/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1c9a792f-7466-4898-ae2d-68824955ffcb/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/config/AppContextListener.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/config/HibernateSessionFactoryConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/config/HibernateSessionFactoryConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestHibernate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestHibernate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/sidebar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +47,8 @@
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.NewClass" />
         <option value="Servlet" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -76,43 +96,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TestHibernate (1).executor": "Run",
-    "Application.TestHibernate.executor": "Run",
-    "Application.TestJDBC.executor": "Run",
-    "JUnit.UserDaoTest.executor": "Run",
-    "JUnit.UserDaoTest.test.executor": "Run",
-    "JUnit.UserDaoTest.testCount.executor": "Run",
-    "JUnit.UserDaoTest.testDelete.executor": "Run",
-    "JUnit.UserDaoTest.testFind.executor": "Run",
-    "JUnit.UserDaoTest.testFindAll.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 9.0.861.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Aptech/JavaEE/ebook",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TestHibernate (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestHibernate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestJDBC.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testCount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testDelete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testFind.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testFindAll.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.861.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Aptech/JavaEE/ebook/src/main/webapp/admin/category&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\admin\category" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\assets\images" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\images" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\common\user" />
@@ -402,7 +423,9 @@
       <workItem from="1709904120012" duration="21000" />
       <workItem from="1709904148717" duration="29000" />
       <workItem from="1710009557724" duration="530000" />
-      <workItem from="1710010100166" duration="4256000" />
+      <workItem from="1710010100166" duration="4371000" />
+      <workItem from="1710161697403" duration="6044000" />
+      <workItem from="1710173854785" duration="1982000" />
     </task>
     <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
       <option name="closed" value="true" />
@@ -476,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710013188322</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update hibernate using xml file">
+      <option name="closed" value="true" />
+      <created>1710014410860</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1710014410860</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +521,8 @@
     <MESSAGE value="Using BeanUtils" />
     <MESSAGE value="Update validate unique email" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Update hibernate using xml file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update hibernate using xml file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

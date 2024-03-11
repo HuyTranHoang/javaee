@@ -10,7 +10,7 @@
 <div class="list-group mt-3">
     <a href="${contextPath}/admin" class="list-group-item list-group-item-action ${currentPage eq '/admin' ? 'active' : ''}">Dashboard</a>
     <a href="${contextPath}/admin/users/" class="list-group-item list-group-item-action ${currentPage eq '/admin/users' ? 'active' : ''}">Users</a>
-    <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/categories/' ? 'active' : ''}">Categories</a>
+    <a href="${contextPath}/admin/categories/" class="list-group-item list-group-item-action ${currentPage eq '/admin/categories' ? 'active' : ''}">Categories</a>
     <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/books/' ? 'active' : ''}">Books</a>
     <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/customers/' ? 'active' : ''}">Customers</a>
     <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/reviews/' ? 'active' : ''}">Reviews</a>

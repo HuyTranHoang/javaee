@@ -8,8 +8,8 @@ import java.util.List;
 public class UserService {
     private final UserDAO userDAO;
 
-    public UserService() {
-        this.userDAO = new UserDAO();
+    public UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 
     public List<User> getAllUsers(String searchString) {
@@ -25,10 +25,25 @@ public class UserService {
     }
 
     public void insertUser(User user) {
+        User existingUser = userDAO.findByEmail(user.getEmail());
+        if (existingUser != null) {
+            throw new IllegalArgumentException("User with email " + user.getEmail() + " already exists");
+        }
+
         userDAO.create(user);
     }
 
     public void updateUser(User user) {
+        User existingUser = userDAO.find(user.getUserId());
+
+        if (existingUser == null) {
+            throw new IllegalArgumentException("User with id " + user.getUserId() + " does not exist");
+        }
+
+        if (existingUser.getUserId() != user.getUserId()) {
+            throw new IllegalArgumentException("User with email " + user.getEmail() + " already exists");
+        }
+
         userDAO.update(user);
     }
 
