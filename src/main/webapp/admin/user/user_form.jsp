@@ -5,7 +5,7 @@
     <jsp:useBean id="mode" class="java.lang.String" scope="request"/>
     <c:if test="${mode == 'create'}">
         <h4 class="mb-4">Create new user</h4>
-        <c:set var="actionPath" value="${contextPath}/admin/users/insert111"/>
+        <c:set var="actionPath" value="${contextPath}/admin/users/insert"/>
     </c:if>
     <c:if test="${mode == 'edit'}">
         <h4 class="mb-4">Update user</h4>

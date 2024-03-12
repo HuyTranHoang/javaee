@@ -11,7 +11,7 @@
     <a href="${contextPath}/admin" class="list-group-item list-group-item-action ${currentPage eq '/admin' ? 'active' : ''}">Dashboard</a>
     <a href="${contextPath}/admin/users/" class="list-group-item list-group-item-action ${currentPage eq '/admin/users' ? 'active' : ''}">Users</a>
     <a href="${contextPath}/admin/categories/" class="list-group-item list-group-item-action ${currentPage eq '/admin/categories' ? 'active' : ''}">Categories</a>
-    <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/books/' ? 'active' : ''}">Books</a>
+    <a href="${contextPath}/admin/products/" class="list-group-item list-group-item-action ${currentPage eq '/admin/products' ? 'active' : ''}">Products</a>
     <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/customers/' ? 'active' : ''}">Customers</a>
     <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/reviews/' ? 'active' : ''}">Reviews</a>
     <a href="#" class="list-group-item list-group-item-action ${currentPage eq '/orders/' ? 'active' : ''}">Orders</a>
@@ -24,7 +24,7 @@
 
 <div class="list-group mt-3">
     <a href="${contextPath}/admin/users/new" class="list-group-item list-group-item-action">New User</a>
-    <a href="#" class="list-group-item list-group-item-action">New Category</a>
-    <a href="#" class="list-group-item list-group-item-action">New Book</a>
+    <a href="${contextPath}/admin/categories/new" class="list-group-item list-group-item-action">New Category</a>
+    <a href="${contextPath}/admin/products/new" class="list-group-item list-group-item-action">New Product</a>
     <a href="#" class="list-group-item list-group-item-action">New Customer</a>
 </div>

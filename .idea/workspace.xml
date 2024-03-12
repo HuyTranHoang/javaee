@@ -9,13 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Update using spring">
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Refactor controller">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/dao/ProductDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spring.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/category/category_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/category/category_list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user/user_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/user/user_form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user/user_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/user/user_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/sidebar.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +33,8 @@
         <option value="com.haulmont.jpb.JpaEntity" />
         <option value="com.haulmont.jpb.NewClass" />
         <option value="Servlet" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,7 +99,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Aptech/JavaEE/ebook/src/main/webapp/admin/category",
+    "last_opened_file_path": "D:/Aptech/JavaEE/ebook/src/main/webapp/admin/product",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,7 +108,7 @@
     "project.structure.last.edited": "Facets",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -114,11 +119,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\admin\product" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\admin\category" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\assets\images" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\images" />
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\common\user" />
-      <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\assets" />
@@ -418,7 +423,14 @@
       <workItem from="1710181893107" duration="63000" />
       <workItem from="1710181962699" duration="73000" />
       <workItem from="1710182050519" duration="95000" />
-      <workItem from="1710182163095" duration="3922000" />
+      <workItem from="1710182163095" duration="4258000" />
+      <workItem from="1710190519823" duration="331000" />
+      <workItem from="1710190869395" duration="118000" />
+      <workItem from="1710190996230" duration="1020000" />
+      <workItem from="1710192040599" duration="38000" />
+      <workItem from="1710192090878" duration="63000" />
+      <workItem from="1710192161965" duration="1167000" />
+      <workItem from="1710251731110" duration="1319000" />
     </task>
     <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
       <option name="closed" value="true" />
@@ -508,7 +520,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710175920662</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Refactor controller">
+      <option name="closed" value="true" />
+      <created>1710186137662</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1710186137662</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,7 +544,8 @@
     <MESSAGE value="Update" />
     <MESSAGE value="Update hibernate using xml file" />
     <MESSAGE value="Update using spring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update using spring" />
+    <MESSAGE value="Refactor controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor controller" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

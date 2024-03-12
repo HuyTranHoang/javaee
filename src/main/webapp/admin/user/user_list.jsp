@@ -1,11 +1,12 @@
 <%@include file="../../common/taglib.jsp" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="actionPath" value="${contextPath}/admin/users"/>
 <jsp:useBean id="listUser" scope="request" type="java.util.List"/>
 
 <div class="d-flex align-items-center justify-content-between mt-3">
     <div class="d-flex align-items-center">
         <h4 class="me-3 gradient-text">User List</h4>
-        <form class="position-relative me-3" action="${contextPath}/admin/users">
+        <form class="position-relative me-3" action="${actionPath}">
             <input name="searchString" id="search" value="${param.searchString}"
                    class="form-control" style="padding-right: 40px" type="text" placeholder="search..">
             <button type="submit" class="btn position-absolute" style="top: 8%; right: 0">
@@ -14,11 +15,11 @@
         </form>
 
         <c:if test="${not empty param.searchString}">
-            <a href="${contextPath}/admin/users" class="btn btn-danger btn-sm">Clear</a>
+            <a href="${actionPath}" class="btn btn-danger btn-sm">Clear</a>
         </c:if>
     </div>
 
-    <a href="${contextPath}/admin/users/new" class="btn btn-success btn-sm">New User</a>
+    <a href="${actionPath}/new" class="btn btn-success btn-sm">New User</a>
 </div>
 
 <c:if test="${not empty sessionScope.error}">
@@ -62,7 +63,7 @@
 </div>
 
 
-<form action="${contextPath}/admin/users/delete" method="post" id="deleteForm">
+<form action="${actionPath}/delete" method="post" id="deleteForm">
     <input type="hidden" id="deleteUserId" name="deleteUserId">
 </form>
 

@@ -53,7 +53,7 @@ public class CategoryController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String action = request.getPathInfo() != null ? request.getPathInfo() : "/invalid-action";
 
         System.out.println("action in post: " + action);
