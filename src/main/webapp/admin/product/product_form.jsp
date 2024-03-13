@@ -12,7 +12,7 @@
         <c:set var="actionPath" value="${contextPath}/admin/products/update"/>
     </c:if>
 
-    <form class="bg-body-secondary rounded p-4" id="productForm"
+    <form class="bg-body-secondary rounded p-4" id="productForm" enctype="multipart/form-data"
           style="width: 400px" action="${actionPath}" method="post">
 
         <c:if test="${not empty sessionScope.error}">

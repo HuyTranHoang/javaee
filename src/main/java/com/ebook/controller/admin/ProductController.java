@@ -5,29 +5,26 @@ import com.ebook.entity.Product;
 import com.ebook.service.CategoryService;
 import com.ebook.service.ProductService;
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
-import org.apache.commons.beanutils.converters.DateConverter;
-import org.apache.commons.beanutils.converters.DateTimeConverter;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
+@MultipartConfig
 @WebServlet(name = "ProductController", value = "/admin/products/*")
 public class ProductController extends HttpServlet {
 
@@ -130,18 +127,7 @@ public class ProductController extends HttpServlet {
 
     private void insertProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Create a custom LocalDate converter
-        Converter localDateConverter = new Converter() {
-            @Override
-            public <T> T convert(Class<T> type, Object value) {
-                if (value instanceof String) {
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-                    LocalDate localDate = LocalDate.parse((String) value, formatter);
-                    return type.cast(localDate);
-                } else {
-                    throw new UnsupportedOperationException("Conversion from " + value.getClass() + " to " + type + " is not supported.");
-                }
-            }
-        };
+        Converter localDateConverter = getLocalDateConverter();
 
         // Register the custom LocalDate converter
         ConvertUtils.register(localDateConverter, LocalDate.class);
@@ -160,7 +146,23 @@ public class ProductController extends HttpServlet {
             product.setCategory(category);
         }
 
-        product.setImage("image placeholder".getBytes());
+        // Get image from request
+        Part imagePart = null;
+        try {
+            imagePart = request.getPart("image");
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (imagePart != null) {
+            // Get input stream of the upload file
+            InputStream inputStream = imagePart.getInputStream();
+            // Convert input stream to byte array
+            byte[] imageBytes = new byte[(int) imagePart.getSize()];
+            inputStream.read(imageBytes);
+            // Set image for Product
+            product.setImage(imageBytes);
+        }
 
         System.out.println(product);
 
@@ -202,4 +204,19 @@ public class ProductController extends HttpServlet {
 //
 //        response.sendRedirect(request.getContextPath() + "/admin/categories");
 //    }
+
+    private Converter getLocalDateConverter() {
+        return new Converter() {
+            @Override
+            public <T> T convert(Class<T> type, Object value) {
+                if (value instanceof String) {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    LocalDate localDate = LocalDate.parse((String) value, formatter);
+                    return type.cast(localDate);
+                } else {
+                    throw new UnsupportedOperationException("Conversion from " + value.getClass() + " to " + type + " is not supported.");
+                }
+            }
+        };
+    }
 }

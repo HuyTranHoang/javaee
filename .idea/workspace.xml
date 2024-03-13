@@ -9,12 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Add product list">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" afterDir="false" />
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Add product without image">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ImageServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/category/category_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/category/category_form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,41 +76,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TestHibernate (1).executor": "Run",
-    "Application.TestHibernate.executor": "Run",
-    "Application.TestJDBC.executor": "Run",
-    "JUnit.UserDaoTest.executor": "Run",
-    "JUnit.UserDaoTest.test.executor": "Run",
-    "JUnit.UserDaoTest.testCount.executor": "Run",
-    "JUnit.UserDaoTest.testDelete.executor": "Run",
-    "JUnit.UserDaoTest.testFind.executor": "Run",
-    "JUnit.UserDaoTest.testFindAll.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 9.0.861.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Aptech/JavaEE/ebook/src/main/webapp/admin/product",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "JavaScript.Libraries",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TestHibernate (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestHibernate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestJDBC.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testCount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testDelete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testFind.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testFindAll.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.861.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Aptech/JavaEE/ebook/src/main/webapp/admin/product&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\admin\product" />
@@ -426,7 +425,8 @@
       <workItem from="1710192090878" duration="63000" />
       <workItem from="1710192161965" duration="1167000" />
       <workItem from="1710251731110" duration="2191000" />
-      <workItem from="1710285556586" duration="2917000" />
+      <workItem from="1710285556586" duration="2970000" />
+      <workItem from="1710298522516" duration="681000" />
     </task>
     <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
       <option name="closed" value="true" />
@@ -532,7 +532,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710253095252</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add product without image">
+      <option name="closed" value="true" />
+      <created>1710288532412</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1710288532412</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +558,8 @@
     <MESSAGE value="Update using spring" />
     <MESSAGE value="Refactor controller" />
     <MESSAGE value="Add product list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add product list" />
+    <MESSAGE value="Add product without image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add product without image" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

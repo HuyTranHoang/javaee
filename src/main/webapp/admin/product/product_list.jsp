@@ -48,7 +48,11 @@
                 <td>${product.name}</td>
                 <td>${product.category.name}</td>
                 <td>${product.author}</td>
-                <td>${product.image}</td>
+                <td>
+                    <img src="${contextPath}/admin/products/image?productId=${product.productId}"
+                         style="width: 100px"
+                         alt="Product image">
+                </td>
                 <td>${product.price}</td>
                 <td>
                     <a href="${actionPath}/edit/${product.productId}"
