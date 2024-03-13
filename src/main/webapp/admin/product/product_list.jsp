@@ -32,6 +32,7 @@
         <tr class="table-success">
             <th scope="col">#</th>
             <th scope="col">Name</th>
+            <th scope="col">Category</th>
             <th scope="col">Author</th>
             <th scope="col">Image</th>
             <th scope="col">Price</th>
@@ -45,6 +46,7 @@
             <tr>
                 <th scope="row">${iterationCount.index + 1}</th>
                 <td>${product.name}</td>
+                <td>${product.category.name}</td>
                 <td>${product.author}</td>
                 <td>${product.image}</td>
                 <td>${product.price}</td>

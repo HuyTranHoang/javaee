@@ -9,18 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Refactor controller">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/dao/ProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" afterDir="false" />
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Add product list">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/category/category_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/category/category_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user/user_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/user/user_form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/user/user_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/user/user_list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/sidebar.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/category/category_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/category/category_form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +103,7 @@
     "project.structure.last.edited": "Facets",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "JavaScript.Libraries",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -430,7 +425,8 @@
       <workItem from="1710192040599" duration="38000" />
       <workItem from="1710192090878" duration="63000" />
       <workItem from="1710192161965" duration="1167000" />
-      <workItem from="1710251731110" duration="1319000" />
+      <workItem from="1710251731110" duration="2191000" />
+      <workItem from="1710285556586" duration="2917000" />
     </task>
     <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
       <option name="closed" value="true" />
@@ -528,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710186137662</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add product list">
+      <option name="closed" value="true" />
+      <created>1710253095252</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1710253095252</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +549,8 @@
     <MESSAGE value="Update hibernate using xml file" />
     <MESSAGE value="Update using spring" />
     <MESSAGE value="Refactor controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor controller" />
+    <MESSAGE value="Add product list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add product list" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

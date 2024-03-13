@@ -12,7 +12,7 @@
         <c:set var="actionPath" value="${contextPath}/admin/categories/update"/>
     </c:if>
 
-    <form class="bg-body-secondary rounded p-4" id="userForm"
+    <form class="bg-body-secondary rounded p-4" id="categoryForm"
           style="width: 400px" action="${actionPath}" method="post">
 
         <c:if test="${not empty sessionScope.error}">
@@ -38,9 +38,9 @@
 
 <script type="text/javascript">
     function initializeScript() {
-        const userForm = $('#userForm');
+        const categoryForm = $('#categoryForm');
 
-        userForm.validate({
+        categoryForm.validate({
             rules: {
                 name: {
                     required: true
@@ -64,8 +64,8 @@
             }
         });
 
-        userForm.on("submit", function (e) {
-            if (userForm.valid()) {
+        categoryForm.on("submit", function (e) {
+            if (categoryForm.valid()) {
                 return true;
             }
             e.preventDefault();
