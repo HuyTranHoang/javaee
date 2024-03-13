@@ -65,19 +65,19 @@ public class ProductController extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String action = request.getPathInfo() != null ? request.getPathInfo() : "/invalid-action";
 
         switch (action) {
             case "/insert":
                 insertProduct(request, response);
                 break;
-//            case "/delete":
-//                deleteProduct(request, response);
-//                break;
-//            case "/update":
-//                updateProduct(request, response);
-//                break;
+            case "/delete":
+                deleteProduct(request, response);
+                break;
+            case "/update":
+                updateProduct(request, response);
+                break;
             default:
                 request.getSession().setAttribute("error", "Invalid action!");
                 response.sendRedirect(request.getContextPath() + "/admin/categories");
@@ -147,24 +147,18 @@ public class ProductController extends HttpServlet {
         }
 
         // Get image from request
-        Part imagePart = null;
+        Part imagePart;
         try {
             imagePart = request.getPart("image");
+            if (imagePart != null) {
+                InputStream inputStream = imagePart.getInputStream();
+                byte[] imageBytes = new byte[(int) imagePart.getSize()];
+                inputStream.read(imageBytes);
+                product.setImage(imageBytes);
+            }
         } catch (ServletException e) {
             throw new RuntimeException(e);
         }
-
-        if (imagePart != null) {
-            // Get input stream of the upload file
-            InputStream inputStream = imagePart.getInputStream();
-            // Convert input stream to byte array
-            byte[] imageBytes = new byte[(int) imagePart.getSize()];
-            inputStream.read(imageBytes);
-            // Set image for Product
-            product.setImage(imageBytes);
-        }
-
-        System.out.println(product);
 
         this.productService.insertProduct(product);
 
@@ -173,37 +167,57 @@ public class ProductController extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin/products");
     }
 
-//    private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        int id = Integer.parseInt(request.getParameter("deleteCategoryId"));
-//
-//        this.categoryService.deleteCategory(id);
-//
-//        request.getSession().setAttribute("message", "Category has been deleted successfully!");
-//
-//        response.sendRedirect(request.getContextPath() + "/admin/categories");
-//    }
-//
-//    private void updateCategory(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        Category category = new Category();
-//
-//        try {
-//            BeanUtils.populate(category, request.getParameterMap());
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        try {
-//            this.categoryService.updateCategory(category);
-//        } catch (IllegalArgumentException e) {
-//            request.getSession().setAttribute("error", "Category with name " + category.getName() + " already exists!");
-//            response.sendRedirect(request.getContextPath() + "/admin/categories/edit/" + category.getCategoryId());
-//            return;
-//        }
-//
-//        request.getSession().setAttribute("message", "Category has been updated successfully!");
-//
-//        response.sendRedirect(request.getContextPath() + "/admin/categories");
-//    }
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int id = Integer.parseInt(request.getParameter("deleteProductId"));
+
+        this.productService.deleteProduct(id);
+
+        request.getSession().setAttribute("message", "Product has been deleted successfully!");
+
+        response.sendRedirect(request.getContextPath() + "/admin/products");
+    }
+
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // Create a custom LocalDate converter
+        Converter localDateConverter = getLocalDateConverter();
+
+        // Register the custom LocalDate converter
+        ConvertUtils.register(localDateConverter, LocalDate.class);
+
+        Product product = new Product();
+        try {
+            BeanUtils.populate(product, request.getParameterMap());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        String categoryIdString = request.getParameter("categoryId");
+        if (categoryIdString != null) {
+            int categoryId = Integer.parseInt(categoryIdString);
+            Category category = this.categoryService.getCategoryById(categoryId);
+            product.setCategory(category);
+        }
+
+        // Get image from request
+        Part imagePart;
+        try {
+            imagePart = request.getPart("image");
+            if (imagePart != null) {
+                InputStream inputStream = imagePart.getInputStream();
+                byte[] imageBytes = new byte[(int) imagePart.getSize()];
+                inputStream.read(imageBytes);
+                product.setImage(imageBytes);
+            }
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
+
+        this.productService.updateProduct(product);
+
+        request.getSession().setAttribute("message", "Product has been updated successfully!");
+
+        response.sendRedirect(request.getContextPath() + "/admin/products");
+    }
 
     private Converter getLocalDateConverter() {
         return new Converter() {

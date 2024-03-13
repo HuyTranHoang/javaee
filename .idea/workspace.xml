@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Add product without image">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ImageServlet.java" afterDir="false" />
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Add product with image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -426,7 +423,7 @@
       <workItem from="1710192161965" duration="1167000" />
       <workItem from="1710251731110" duration="2191000" />
       <workItem from="1710285556586" duration="2970000" />
-      <workItem from="1710298522516" duration="681000" />
+      <workItem from="1710298522516" duration="1291000" />
     </task>
     <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
       <option name="closed" value="true" />
@@ -540,7 +537,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710288532412</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add product with image">
+      <option name="closed" value="true" />
+      <created>1710299279010</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1710299279010</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +564,8 @@
     <MESSAGE value="Refactor controller" />
     <MESSAGE value="Add product list" />
     <MESSAGE value="Add product without image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add product without image" />
+    <MESSAGE value="Add product with image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add product with image" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
