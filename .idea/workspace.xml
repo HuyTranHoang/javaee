@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Add product with image">
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Update product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ImageServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/service/ProductService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +425,7 @@
       <workItem from="1710192161965" duration="1167000" />
       <workItem from="1710251731110" duration="2191000" />
       <workItem from="1710285556586" duration="2970000" />
-      <workItem from="1710298522516" duration="1291000" />
+      <workItem from="1710298522516" duration="2410000" />
     </task>
     <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
       <option name="closed" value="true" />
@@ -545,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710299279010</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update product">
+      <option name="closed" value="true" />
+      <created>1710299921232</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1710299921232</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -565,7 +575,8 @@
     <MESSAGE value="Add product list" />
     <MESSAGE value="Add product without image" />
     <MESSAGE value="Add product with image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add product with image" />
+    <MESSAGE value="Update product" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update product" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>

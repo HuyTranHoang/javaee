@@ -57,6 +57,9 @@ public class ProductController extends HttpServlet {
             case "edit":
                 showEditForm(request, response, pathParts[2]);
                 break;
+            case "image":
+                getImage(request, response);
+                break;
             default:
                 listProduct(request, response);
                 break;
@@ -202,11 +205,14 @@ public class ProductController extends HttpServlet {
         Part imagePart;
         try {
             imagePart = request.getPart("image");
-            if (imagePart != null) {
+            if (imagePart != null && imagePart.getSize() > 0) {
                 InputStream inputStream = imagePart.getInputStream();
                 byte[] imageBytes = new byte[(int) imagePart.getSize()];
                 inputStream.read(imageBytes);
                 product.setImage(imageBytes);
+            } else {
+                Product existingProduct = this.productService.getProductById(product.getProductId());
+                product.setImage(existingProduct.getImage());
             }
         } catch (ServletException e) {
             throw new RuntimeException(e);
@@ -232,5 +238,13 @@ public class ProductController extends HttpServlet {
                 }
             }
         };
+    }
+
+    private void getImage(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String productId = request.getParameter("productId");
+        Product product = productService.getProductById(Integer.parseInt(productId));
+
+        response.setContentType("image/jpeg");
+        response.getOutputStream().write(product.getImage());
     }
 }
