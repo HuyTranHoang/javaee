@@ -14,7 +14,8 @@ import java.util.Objects;
 @NamedQueries({
         @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u ORDER BY u.userId DESC"),
         @NamedQuery(name = "User.count", query = "SELECT COUNT(u) FROM User u"),
-        @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email")
+        @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
+        @NamedQuery(name = "User.findByEmailAndPassword", query = "SELECT u FROM User u WHERE u.email = :email AND u.password = :password")
 })
 public class User {
     @Id

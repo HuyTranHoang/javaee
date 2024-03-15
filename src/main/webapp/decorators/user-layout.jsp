@@ -16,7 +16,15 @@
 <jsp:include page="../common/user/navbar.jsp" />
 
 <div class="container flex-grow-1">
-    <decorator:body></decorator:body>
+    <div class="row">
+        <div class="col-3">
+            <jsp:include page="../common/user/sidebar.jsp" />
+        </div>
+        <div class="col-9">
+            <decorator:body></decorator:body>
+        </div>
+    </div>
+
 </div>
 
 <%@include file="../common/user/footer.jsp" %>

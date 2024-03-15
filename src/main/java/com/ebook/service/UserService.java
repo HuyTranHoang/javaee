@@ -2,6 +2,7 @@ package com.ebook.service;
 
 import com.ebook.dao.UserDAO;
 import com.ebook.entity.User;
+import com.ebook.utils.EncryptUtil;
 
 import java.util.List;
 
@@ -30,6 +31,9 @@ public class UserService {
             throw new IllegalArgumentException("User with email " + user.getEmail() + " already exists");
         }
 
+        String hashPassword = EncryptUtil.encryptPassword(user.getPassword());
+        user.setPassword(hashPassword);
+
         userDAO.create(user);
     }
 
@@ -44,11 +48,21 @@ public class UserService {
             throw new IllegalArgumentException("User with email " + user.getEmail() + " already exists");
         }
 
+        String hashPassword = EncryptUtil.encryptPassword(user.getPassword());
+        user.setPassword(hashPassword);
+
         userDAO.update(user);
     }
 
     public void deleteUser(int id) {
         userDAO.delete(id);
+    }
+
+    public boolean authenticateUser(String email, String password) {
+        String hashPassword = EncryptUtil.encryptPassword(password);
+
+        User user = userDAO.findByEmailAndPasswordWithHQL(email, hashPassword);
+        return user != null;
     }
 
 }

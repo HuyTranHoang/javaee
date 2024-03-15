@@ -11,4 +11,9 @@
         <pattern>/*</pattern>
     </decorator>
 
+    <excludes>
+        <pattern>/admin/login</pattern>
+        <pattern>/login</pattern>
+    </excludes>
+
 </decorators>

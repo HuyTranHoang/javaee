@@ -58,6 +58,12 @@ public class UserDaoTest {
         assertEquals(5, userDao.count());
     }
 
+    @Test
+    void testFindByEmailAndPassword() {
+        User user = userDao.findByEmailAndPasswordWithHQL("test@gmail.com", "password");
+        assertNotNull(user);
+    }
+
     @AfterAll // Chạy sau khi chạy các test case
     static void tearDown() {
         userDao = null;

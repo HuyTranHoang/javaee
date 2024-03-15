@@ -21,10 +21,15 @@
                        href="${contextPath}/admin">Admin</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                Welcome, Admin
-                <span class="mx-3"> | </span>
-                Logout
+            <form class="d-flex align-items-center" action="${pageContext.request.contextPath}/admin/logout" method="post">
+                <c:if test="${not empty sessionScope.userEmail}">
+                    Welcome, ${sessionScope.userEmail}
+                    <span class="mx-3"> | </span>
+                    <button class="btn" type="submit">Logout</button>
+                </c:if>
+                <c:if test="${empty sessionScope.userEmail}">
+                    <a class="btn btn-outline-success" href="${contextPath}/admin/login">Login</a>
+                </c:if>
             </form>
         </div>
     </div>

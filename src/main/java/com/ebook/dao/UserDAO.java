@@ -65,4 +65,17 @@ public class UserDAO extends JpaDAO<User> {
     public User findByEmailWithHQL(String email) {
         return super.findOneWithHQL("User.findByEmail", "email", email);
     }
+
+    public User findByEmailAndPasswordWithHQL(String email, String password) {
+        User user = null;
+        try (Session session = sessionFactory.openSession()) {
+            user = session.createNamedQuery("User.findByEmailAndPassword", User.class)
+                    .setParameter("email", email)
+                    .setParameter("password", password)
+                    .getSingleResult();
+        } catch (Exception e) {
+            log.warning("Error finding User with HQL");
+        }
+        return user;
+    }
 }
