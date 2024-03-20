@@ -24,7 +24,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@MultipartConfig
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 10,  // 10 KB
+        maxFileSize = 1024 * 300,       // 300 KB
+        maxRequestSize = 1024 * 1024    // 1 MB
+)
 @WebServlet(name = "ProductController", value = "/admin/products/*")
 public class ProductController extends HttpServlet {
 
@@ -158,6 +162,7 @@ public class ProductController extends HttpServlet {
                 byte[] imageBytes = new byte[(int) imagePart.getSize()];
                 inputStream.read(imageBytes);
                 product.setImage(imageBytes);
+                inputStream.close();
             }
         } catch (ServletException e) {
             throw new RuntimeException(e);
@@ -210,6 +215,7 @@ public class ProductController extends HttpServlet {
                 byte[] imageBytes = new byte[(int) imagePart.getSize()];
                 inputStream.read(imageBytes);
                 product.setImage(imageBytes);
+                inputStream.close();
             } else {
                 Product existingProduct = this.productService.getProductById(product.getProductId());
                 product.setImage(existingProduct.getImage());
@@ -225,12 +231,27 @@ public class ProductController extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin/products");
     }
 
+//    private Converter getLocalDateConverter() {
+//        return new Converter() {
+//            @Override
+//            public <T> T convert(Class<T> type, Object value) {
+//                if (value instanceof String) {
+//                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//                    LocalDate localDate = LocalDate.parse((String) value, formatter);
+//                    return type.cast(localDate);
+//                } else {
+//                    throw new UnsupportedOperationException("Conversion from " + value.getClass() + " to " + type + " is not supported.");
+//                }
+//            }
+//        };
+//    }
+
     private Converter getLocalDateConverter() {
         return new Converter() {
             @Override
             public <T> T convert(Class<T> type, Object value) {
                 if (value instanceof String) {
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
                     LocalDate localDate = LocalDate.parse((String) value, formatter);
                     return type.cast(localDate);
                 } else {

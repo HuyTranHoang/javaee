@@ -8,7 +8,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Base64;
 
 @Entity
 @Table(name = "product")
@@ -44,4 +46,18 @@ public class Product {
     @ManyToOne()
     @JoinColumn(name = "category_id")
     private Category category;
+
+    @Transient
+    private String base64Image;
+
+    @Transient
+    private Date publishDateAsUtilDate;
+
+    public String getBase64Image() {
+        return Base64.getEncoder().encodeToString(this.image);
+    }
+
+    public Date getPublishDateAsUtilDate() {
+        return Date.valueOf(publishDate);
+    }
 }

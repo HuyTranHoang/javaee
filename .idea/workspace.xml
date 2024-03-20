@@ -9,28 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Update product">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/filter/AdminLoginFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ebook/utils/EncryptUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/admin/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/error/404.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/error/500.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="5bab38a7-556e-4fd4-a6ba-3501083b8663" name="Changes" comment="Update admin filter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/client/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/client/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/decorators.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/controller/admin/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ebook/entity/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/client/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/client/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/client/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/client/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/client/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/user/sidebar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/common/admin/navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/common/admin/navbar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/decorators/user-layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/decorators/user-layout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin/product/product_form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/decorators/admin-layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/decorators/admin-layout.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,42 +77,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TestHibernate (1).executor": "Run",
-    "Application.TestHibernate.executor": "Run",
-    "Application.TestJDBC.executor": "Run",
-    "JUnit.UserDaoTest.executor": "Run",
-    "JUnit.UserDaoTest.test.executor": "Run",
-    "JUnit.UserDaoTest.testCount.executor": "Run",
-    "JUnit.UserDaoTest.testDelete.executor": "Run",
-    "JUnit.UserDaoTest.testFind.executor": "Run",
-    "JUnit.UserDaoTest.testFindAll.executor": "Run",
-    "JUnit.UserDaoTest.testFindByEmailAndPassword.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat Server.Tomcat 9.0.861.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Aptech/JavaEE/ebook/src/main/webapp/error",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TestHibernate (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestHibernate.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestJDBC.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testCount.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testDelete.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testFind.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testFindAll.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserDaoTest.testFindByEmailAndPassword.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 9.0.861.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Aptech/JavaEE/ebook/src/main/webapp/error&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Aptech\JavaEE\ebook\src\main\webapp\error" />
@@ -453,7 +438,9 @@
       <workItem from="1710508677154" duration="3221000" />
       <workItem from="1710511918976" duration="70000" />
       <workItem from="1710511999186" duration="30000" />
-      <workItem from="1710512040778" duration="700000" />
+      <workItem from="1710512040778" duration="993000" />
+      <workItem from="1710766831525" duration="5152000" />
+      <workItem from="1710939981047" duration="3889000" />
     </task>
     <task id="LOCAL-00001" summary="Update using sitemesh for layout. Jquery for validate">
       <option name="closed" value="true" />
@@ -591,7 +578,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710300960063</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Update admin filter">
+      <option name="closed" value="true" />
+      <created>1710513025553</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1710513025553</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +607,8 @@
     <MESSAGE value="Add product without image" />
     <MESSAGE value="Add product with image" />
     <MESSAGE value="Update product" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update product" />
+    <MESSAGE value="Update admin filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update admin filter" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
