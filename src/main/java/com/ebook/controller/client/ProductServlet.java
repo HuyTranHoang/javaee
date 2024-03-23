@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "Product", value = "/product")
+@WebServlet(name = "Product", value = "/product/*")
 public class ProductServlet extends HttpServlet {
 
 
@@ -44,6 +44,9 @@ public class ProductServlet extends HttpServlet {
         String action = pathParts[1];
 
         switch (action) {
+            case "detail":
+                detailProduct(request, response);
+                break;
             default:
                 listProduct(request, response);
                 break;
@@ -68,6 +71,16 @@ public class ProductServlet extends HttpServlet {
 
         request.setAttribute("products", products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/client/product_list.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void detailProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int productId = Integer.parseInt(request.getParameter("productId"));
+
+        Product product = productService.getProductById(productId);
+        request.setAttribute("product", product);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/client/product_detail.jsp");
         dispatcher.forward(request, response);
     }
 }

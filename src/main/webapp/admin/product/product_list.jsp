@@ -49,7 +49,7 @@
                 <td>${product.category.name}</td>
                 <td>${product.author}</td>
                 <td>
-                    <img src="${contextPath}/admin/products/image?productId=${product.productId}"
+                    <img src="data:image/png;base64, ${product.base64Image}"
                          style="width: 100px"
                          alt="Product image">
                 </td>

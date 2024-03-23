@@ -1,7 +1,6 @@
 package com.ebook.filter;
 
 import com.ebook.service.CategoryService;
-import com.ebook.service.ProductService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -28,7 +27,7 @@ public class LoadCategoryFilter extends HttpFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String uri = request.getRequestURI();
-        if (uri.contains("/admin/") || uri.contains("/assets/") || uri.contains("/login") || uri.contains("/register") || uri.contains("/logout") || uri.contains("/cart") || uri.contains("/checkout") || uri.contains("/order") || uri.contains("/search") || uri.contains("/product") || uri.contains("/category")) {
+        if (uri.contains("/admin/") || uri.contains("/assets/") || uri.contains("/login") || uri.contains("/register") || uri.contains("/logout")) {
             filterChain.doFilter(request, response);
             return;
         }
