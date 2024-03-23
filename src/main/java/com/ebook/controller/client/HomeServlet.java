@@ -28,8 +28,6 @@ public class HomeServlet extends HttpServlet {
         List<Category> categories = categoryService.getAllCategories();
         request.setAttribute("categories", categories);
 
-        System.out.println(categories);
-
         request.setAttribute("contextPath", request.getContextPath());
         request.getRequestDispatcher("/client/home.jsp").forward(request, response);
     }

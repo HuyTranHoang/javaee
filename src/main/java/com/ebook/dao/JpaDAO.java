@@ -88,6 +88,20 @@ public class JpaDAO<T> {
         }
     }
 
+    public List<T> getByField(String fieldName, Object value) {
+        List<T> list = null;
+        try (Session session = sessionFactory.openSession()) {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<T> criteria = builder.createQuery(type);
+            Root<T> root = criteria.from(type);
+            criteria.select(root).where(builder.equal(root.get(fieldName), value));
+            list = session.createQuery(criteria).getResultList();
+        } catch (Exception e) {
+            log.warning("Error finding " + type.getSimpleName() + " by " + fieldName);
+        }
+        return list;
+    }
+
 //    Hibernate Criteria Query
 
     public List<T> findAll() {

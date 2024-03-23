@@ -7,7 +7,7 @@
         <c:forEach items="${categories}" var="category" varStatus="status">
             <jsp:useBean id="category" type="com.ebook.entity.Category"/>
             <li class="nav-item mb-3">
-                <a href="product?command=listByCategory&id=${category.categoryId}" class="nav-link align-items-center">
+                <a href="product?id=${category.categoryId}" class="nav-link align-items-center">
                     <c:choose>
                         <c:when test="${fn:toLowerCase(category.name) == 'comic'}">
                             <img src="<c:url value="/assets/images/comic.svg" />" alt="comic" class="me-2" style="width: 50px; height: 30px">

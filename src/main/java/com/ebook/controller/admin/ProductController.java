@@ -93,7 +93,7 @@ public class ProductController extends HttpServlet {
     }
 
     private void listProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> products = this.productService.getAllCategories();
+        List<Product> products = this.productService.getAllProduct();
         request.setAttribute("products", products);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/product/product_list.jsp");
@@ -163,6 +163,13 @@ public class ProductController extends HttpServlet {
                 inputStream.read(imageBytes);
                 product.setImage(imageBytes);
                 inputStream.close();
+            } else {
+                // Set default image if no image is provided
+                InputStream defaultImageStream = getServletContext().getResourceAsStream("/assets/images/no-image.png");
+                byte[] defaultImageBytes = new byte[defaultImageStream.available()];
+                defaultImageStream.read(defaultImageBytes);
+                product.setImage(defaultImageBytes);
+                defaultImageStream.close();
             }
         } catch (ServletException e) {
             throw new RuntimeException(e);
